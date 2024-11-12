@@ -1,5 +1,6 @@
 package com.example.daggerhilttuto
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,14 +18,18 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
+        val mService = Intent(this, MyService::class.java )
+        startService(mService)
+
         setContent {
             DaggerHiltTutoTheme {
-                println("issam, Instantiating ViewModel started")
-                val viewModel: MyViewModel = hiltViewModel()
-                println("issam, Instantiating ViewModel succeded")
+                println("sam, instantiating VM")
+                val viewModel = hiltViewModel<MyViewModel>()
             }
         }
     }

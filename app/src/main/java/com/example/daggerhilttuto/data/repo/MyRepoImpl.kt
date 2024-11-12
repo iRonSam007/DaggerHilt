@@ -13,7 +13,7 @@ class MyRepoImpl @Inject constructor(
 
     init{
         val appName = appContext.getString(R.string.app_name)
-        println("issam, Repo/viewmodel, checking app name $appName")
+        println("sam, Repo/viewmodel, checking app name $appName")
     }
 
     override suspend fun doNetworkCall(){

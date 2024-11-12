@@ -27,24 +27,26 @@ object AppModule {
             .create(MyApi::class.java)
     }
 
+    /*
+    This will be replaced by bindMyRepository in DI Repository Module
+    @Provides
+    @Singleton
+    fun provideMyRepo(
+        api: MyApi,
+        app: Application
+    ): MyRepo{
+        return MyRepoImpl(api, app)
+    }
+    */
 
-@Provides
-@Singleton
-fun provideMyRepo(
-    api: MyApi,
-    app: Application
-): MyRepo{
-    return MyRepoImpl(api, app)
-}
+    //Named annotation for instances that have the same type in DI module is needed, Dagger doesn't include the method name in dependency graph, hence the need of
+    @Provides
+    @Singleton
+    @Named("hello1")
+    fun provideString1() = "hello 1"
 
-//Named annotation for instances that have the same type in DI module is needed, Dagger doesn't include the method name in dependency graph, hence the need of
-@Provides
-@Singleton
-@Named("hello1")
-fun provideString1() = "hello 1"
-
-@Provides
-@Singleton
-@Named("hello2")
-fun provideString2() = "hello 2"
+    @Provides
+    @Singleton
+    @Named("hello2")
+    fun provideString2() = "hello 2"
 }
