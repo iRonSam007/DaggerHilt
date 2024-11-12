@@ -83,6 +83,11 @@ dependencies {
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
 
+    //implementation(libs.hiltLifecycleViewmodel)
+    implementation(libs.hiltNavigationCompose)
+
+    implementation(libs.lifecycleViewmodelCompose)
+
 }
 
 //Build: Apply KAPT type errors corrections for Hilt
